@@ -43,6 +43,18 @@ NVMAddress::NVMAddress( )
     subarray = row = col = bank = rank = channel = 0;
 }
 
+NVMAddress::NVMAddress( const NVMAddress& copy)
+{
+    translated = copy.translated;
+    hasPhysicalAddress = copy.hasPhysicalAddress;
+    physicalAddress = copy.physicalAddress;
+    subarray = copy.subarray;
+    col = copy.col;
+    bank = copy.bank;
+    rank = copy.rank;
+    channel = copy.channel;
+}
+
 NVMAddress::~NVMAddress( )
 {
 }
@@ -139,6 +151,9 @@ bool NVMAddress::HasPhysicalAddress( )
 
 NVMAddress& NVMAddress::operator=( const NVMAddress& m )
 {
+    if(this == &m)
+        return *this;
+
     translated = m.translated;
     hasPhysicalAddress = m.hasPhysicalAddress;
     physicalAddress = m.physicalAddress;

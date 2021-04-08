@@ -42,6 +42,7 @@ class NVMAddress
 {
   public:
     NVMAddress( );
+    NVMAddress( const NVMAddress& copy);
     ~NVMAddress( );
 
     NVMAddress( uint64_t addrRow, uint64_t addrCol, uint64_t addrBank,
