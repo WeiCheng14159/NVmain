@@ -274,9 +274,9 @@ void SubArray::RegisterStats( )
  */
 bool SubArray::Activate( NVMainRequest *request )
 {
-    uint64_t activateRow;
+    uint64_t activateRow, activateCol;
 
-    request->address.GetTranslatedAddress( &activateRow, NULL, NULL, NULL, NULL, NULL );
+    request->address.GetTranslatedAddress( &activateRow, &activateCol, NULL, NULL, NULL, NULL );
 
     /* Check if we need to cancel or pause a write to service this request. */
     CheckWritePausing( );
